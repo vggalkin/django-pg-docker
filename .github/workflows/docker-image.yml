@@ -21,6 +21,6 @@ jobs:
         username: ${{ secrets.DOCKERHUB_USER }}
         password: ${{ secrets.DOCKERHUB_PASS }}
     - name: Build the image
-      run: docker build . --file Dockerfile --tag gvstudioddnsnet/django-pg-docker:${GITHUB_REF#refs/*/}
+      run: docker build . --file Dockerfile --tag gvstudioddnsnet/django-pg-docker:${{ github.ref_name }}
     - name: Push to Docker Hub
       run: docker push ${{secrets.DOCKERHUB_USER}}/django-pg-docker
