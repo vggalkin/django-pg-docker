@@ -13,12 +13,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Get last tag
-      uses: actions-ecosystem/action-get-latest-tag@v1
-        id: get-latest-tag
-        if: ${{ steps.release-label.outputs.level != null }}
-        with:
-          semver_only: true
     - name: Checkout source code
       uses: actions/checkout@v3
     - name: Login to Docker Hub
@@ -27,6 +21,6 @@ jobs:
         username: ${{ secrets.DOCKERHUB_USER }}
         password: ${{ secrets.DOCKERHUB_PASS }}
     - name: Build the image
-      run: docker build . --file Dockerfile --tag gvstudioddnsnet/django-pg-docker:${{ steps.get-latest-tag.outputs.tag }}
+      run: docker build . --file Dockerfile --tag gvstudioddnsnet/django-pg-docker:${{ actions-ecosystem/action-get-latest-tag@v1 }}
     - name: Push to Docker Hub
-      run: docker push ${{secrets.DOCKERHUB_USER}}/django-pg-docker:${{ steps.get-latest-tag.outputs.tag }}
+      run: docker push ${{secrets.DOCKERHUB_USER}}/django-pg-docker:${{ actions-ecosystem/action-get-latest-tag@v1 }}
