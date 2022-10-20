@@ -22,7 +22,7 @@ jobs:
       uses: dawidd6/action-get-tag@v1
       with:
         # Optionally strip `v` prefix
-        strip_v: true
+        strip_v: false
     - name: Checkout source code
       uses: actions/checkout@v3
     - name: Login to Docker Hub
