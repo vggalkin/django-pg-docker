@@ -14,6 +14,7 @@ cd django-pg-docker
 3. Создаем файл пайплайна 
 
   [Docker Image CD](.github/workflows/docker_image_cd.yml)
+
 4. Коммитим и пушим
 ```console
 git add .
