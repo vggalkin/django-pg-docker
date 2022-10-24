@@ -13,4 +13,13 @@ cd django-pg-docker
 ```
 3. Создаем файл пайплайна 
 
-[Docker Image CD](.github/workflows/docker_image_cd.yml)
+  [Docker Image CD](.github/workflows/docker_image_cd.yml)
+4. Коммитим и пушим
+```console
+git add .
+git commit -m 'Add pipeline'
+git tag -a -m 'Version 1.1.1' v1.1.1
+git push origin master
+git push origin v1.1.1
+```
+5. Заходим в на Github в Actions и наблюдаем процесс сборки и отправки в Docker registry
